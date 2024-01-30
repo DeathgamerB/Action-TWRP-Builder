@@ -147,7 +147,7 @@ jobs:
       uses: pierotofy/set-swap-space@master
       with:
         swap-size-gb: 12
-
+      continue-on-error: true
     - name: Building recovery
       run: |
         source build/envsetup.sh
