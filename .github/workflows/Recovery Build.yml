@@ -92,6 +92,7 @@ jobs:
 
     - name: Install repo
       run: |
+        sudo rm -rf /home/deathgamer_b_20102014/bin
         mkdir ~/bin
         curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
         chmod a+x ~/bin/repo
