@@ -114,6 +114,7 @@ jobs:
         sudo rm -rf ./prebuilt/Android.mk
         git clone https://github.com/DeathgamerB/prebuilt.git ./prebuilt_file
         cp ./prebuilt_file/prebuilt/Android.mk ./prebuilt
+        sudo rm -rf ./prebuilt_file
       working-directory: workspace
       
     - name: Clone device tree
