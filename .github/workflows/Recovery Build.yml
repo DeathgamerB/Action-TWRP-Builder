@@ -111,6 +111,8 @@ jobs:
     - name: Repo Sync
       run: |
         repo sync -j$(nproc --all) --force-sync
+        sudo rm -rf ./prebuilt
+        git clone https://github.com/DeathgamerB/bootable_recovery.git ./prebuilt -b android-11.0
       working-directory: workspace
       
     - name: Clone device tree
