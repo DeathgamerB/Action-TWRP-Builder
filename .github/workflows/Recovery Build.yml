@@ -116,7 +116,6 @@ jobs:
     - name: Clone device tree
       run: |
         git clone https://github.com/Spacewar-dev/android_kernel_nothing_sm7325.git ./kernel/nothing/sm7325 -b 14.0
-        git clone https://github.com/SHRP-Reborn/android_vendor_twrp.git -b
         git clone https://github.com/TheMuppets/proprietary_vendor_nothing_Spacewar.git ./vendor/nothing/Spacewar -b lineage-20
         git clone ${{ github.event.inputs.DEVICE_TREE_URL }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
