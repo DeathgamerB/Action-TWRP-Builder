@@ -6,7 +6,7 @@ on:
       MANIFEST_URL:
         description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
         required: true
-        default: 'https://github.com/SHRP/manifest'
+        default: 'https://github.com/SHRP-Reborn/manifest'
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
         required: true
@@ -111,15 +111,12 @@ jobs:
     - name: Repo Sync
       run: |
         repo sync -j$(nproc --all) --force-sync
-        sudo rm -rf ./prebuilt/Android.mk
-        git clone https://github.com/DeathgamerB/prebuilt.git ./prebuilt_file
-        cp ./prebuilt_file/prebuilt/Android.mk ./prebuilt
-        sudo rm -rf ./prebuilt_file
       working-directory: workspace
       
     - name: Clone device tree
       run: |
         git clone https://github.com/Spacewar-dev/android_kernel_nothing_sm7325.git ./kernel/nothing/sm7325 -b 14.0
+        git clone https://github.com/SHRP-Reborn/android_vendor_twrp.git -b
         git clone https://github.com/TheMuppets/proprietary_vendor_nothing_Spacewar.git ./vendor/nothing/Spacewar -b lineage-20
         git clone ${{ github.event.inputs.DEVICE_TREE_URL }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
